@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # verb path,to: controller_name#acion_name, as: :alias
+  get "restaurants", to: "restaurants#index"
+  get "restaurants/new", to: "restaurants#new"
+  post "restaurants", to: "restaurants#create"
+  get "restaurants/:id", to: "restaurants#show"
+
 end
