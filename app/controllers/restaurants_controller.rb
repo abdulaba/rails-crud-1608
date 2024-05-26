@@ -1,13 +1,13 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: %i[show edit update destroy]
+
   # /restaurants
   def index
     @restaurants = Restaurant.all # trae todos los registros de la tabla restaurants
   end
 
   # /restaurants/:id
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
+  def show; end
 
   # /restaurants/new
   def new
@@ -26,13 +26,10 @@ class RestaurantsController < ApplicationController
   end
 
   #/restaurants/:id/edit
-  def edit
-    @restaurant = Restaurant.find(params[:id])
-  end
+  def edit;  end
 
   #/restaurants/:id
   def update
-    @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
       redirect_to restaurants_path
     else
@@ -41,7 +38,6 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to restaurants_path, status: :see_other
   end
@@ -50,5 +46,9 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 end

@@ -5,3 +5,5 @@
     <%= link_to "Delete", restaurant_path(restaurant.id), data: {turbo_method: :delete, turbo_confirmation: "Estas seguro/a que quieres borrar este registro?"} %>
   </p>
 <% end %>
+
+render @restaurants => each do |restaurant|
