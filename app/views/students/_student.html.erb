@@ -1,17 +1,19 @@
-<div id="<%= dom_id student %>">
-  <p>
+<div>
+  <div id="<%= dom_id student %>">
+    <p>
 
-    <%= student.name %>
-  </p>
+      <%= student.name %>
+    </p>
 
-  <p>
+    <p>
 
-    <%= image_tag student.url, size: "200x200" %>
-  </p>
+      <%= image_tag student.url, size: "150x150" %>
+    </p>
 
-  <p>
-    <strong>Country:</strong>
-    <%= student.country %>
-  </p>
+    <p>
+      <strong>Country:</strong>
+      <%= student.country %>
+    </p>
 
+  </div>
 </div>
